@@ -9,6 +9,7 @@ module music_tetris_treble_rom (
     output beat[4]
 ) {
     const THINGY = $reverse({
+    // (Note freq, Note duration), mapped in note_period_rom and bpm149_rom respectively
             c{5d20, 4d2},
             c{5d17, 4d1},
             c{5d18, 4d1},

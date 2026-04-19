@@ -9,6 +9,7 @@ module music_never_treble_rom (
     output beat[4]
 ) {
     const THINGY = $reverse({
+    // (Note freq, Note duration), mapped in note_period_rom and bpm114_rom respectively
             c{5d15, 4d1},
             c{5d16, 4d1},
             c{5d18, 4d1},
