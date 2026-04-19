@@ -1,0 +1,44 @@
+// https://mixbutton.com/music-tools/frequency-and-pitch/music-note-to-frequency-chart
+// Note frequencies obtained from the above link
+// Formula: Period = 100 000 000 / Frequency
+
+module note_period_rom (
+    input note[5],
+    output count[32]
+) {
+    const PERIODS = $reverse({
+            32d0,
+            32d909091, // A2
+            32d809913, // B2
+            32d764467, // C3
+            32d681060, // D3
+            32d606759, // E3
+            32d572705, // F3
+            32d510204, // G3
+            32d481579, // G3#
+            32d454545, // A3
+            32d404956, // B3
+            32d382219, // C4
+            32d340530, // D4
+            32d303370, // E4
+            32d286336, // F4
+            32d255102, // G4
+            32d227272, // A4
+            32d202478, // B4
+            32d191113, // C5
+            32d170262, // D5
+            32d151687, // E5
+            32d143172, // F5
+            32d127552, // G5
+            32d113636, // A5
+            32d240890  // G4# (out of order)
+    })
+    
+    always {
+        if (note > 24) {
+            count = 0
+        } else {
+            count = PERIODS[note]
+        }
+    }
+}
